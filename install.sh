@@ -16,7 +16,7 @@ else
     whiptail --title "Installation aborted" --msgbox "$PiSupplySwitchDir already exists, please remove it and restart the installation" 8 78
     exit
    else
-    git clone https://github.com/PiSupply/Pi-Supply-Switch.git
+    git clone https://github.com/rotulet/Pi-Supply-Switch.git
    fi
 
    mkdir /opt/piswitch
