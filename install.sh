@@ -9,14 +9,14 @@ fi
 if [ ! $? = 0 ]; then
    exit 1
 else
-   apt-get install -y git whiptail #Installs packages which might be missing
+   apt-get install -y git whiptail python-dev python-rpi.gpio #Installs packages which might be missing
 
-   PiSupplySwitchDir="Pi-Supply-Switch"
+   PiSupplySwitchDir="/tmp/Pi-Supply-Switch"
    if [ -d "$PiSupplySwitchDir" ]; then
     whiptail --title "Installation aborted" --msgbox "$PiSupplySwitchDir already exists, please remove it and restart the installation" 8 78
     exit
    else
-    git clone https://github.com/rotulet/Pi-Supply-Switch.git
+    git clone https://github.com/rotulet/Pi-Supply-Switch.git $PiSupplySwitchDir
    fi
 
    mkdir /opt/piswitch
@@ -34,5 +34,7 @@ else
 
    systemctl enable /etc/systemd/system/piswitch.service
    whiptail --title "Installation complete" --msgbox "Pi Switch installation complete. The system will power off." 8 78
+
+   rm -rf $PiSupplySwitchDir
    poweroff
 fi
