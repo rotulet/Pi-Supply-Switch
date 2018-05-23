@@ -1,6 +1,7 @@
 [Unit]
 Description=Starts softshut for Pi Switch
-Requires=local-fs.target
+DefaultDependencies=false
+Wants=systemd-journald.service
 
 [Service]
 Type=simple
@@ -8,4 +9,5 @@ ExecStart=/opt/piswitch/softshut.py
 WorkingDirectory=/opt/piswitch/
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=sysinit.target
+

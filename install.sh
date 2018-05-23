@@ -26,6 +26,13 @@ else
      whiptail --title "Installation aborted" --msgbox "There was a problem writing the softshut.py file" 8 78
     exit
    fi
+
+   cp $PiSupplySwitchDir/oled_message.py /opt/piswitch
+   if [ ! -f /opt/piswitch/oled_message.py ]; then
+     whiptail --title "Installation aborted" --msgbox "There was a problem writing the oled_message.py file" 8 78
+    exit
+   fi
+
    cp $PiSupplySwitchDir/piswitch.service /etc/systemd/system
    if [ ! -f /etc/systemd/system/piswitch.service ]; then
     whiptail --title "Installation aborted" --msgbox "There was a problem writing the piswitch.service file" 8 78
