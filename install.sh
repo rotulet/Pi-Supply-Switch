@@ -27,9 +27,9 @@ else
     exit
    fi
 
-   cp $PiSupplySwitchDir/oled_message.py /opt/piswitch
-   if [ ! -f /opt/piswitch/oled_message.py ]; then
-     whiptail --title "Installation aborted" --msgbox "There was a problem writing the oled_message.py file" 8 78
+   cp $PiSupplySwitchDir/oled.py /opt/piswitch
+   if [ ! -f /opt/piswitch/oled.py ]; then
+     whiptail --title "Installation aborted" --msgbox "There was a problem writing the oled.py file" 8 78
     exit
    fi
 
